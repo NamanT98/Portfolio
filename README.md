@@ -3,7 +3,7 @@
 A clean, modern, and responsive portfolio website built with **Angular 19** and **Angular Material**.
 
 ## 🚀 Live Demo
-[namant98.github.io](https://namant98.github.io/)
+[portfolio-namant98.vercel.app](https://portfolio-namant98.vercel.app/)
 
 ## ✨ Features
 - **Modern UI/UX**: Clean design with smooth scroll animations.
@@ -17,7 +17,7 @@ A clean, modern, and responsive portfolio website built with **Angular 19** and 
 - **Framework**: Angular 19+
 - **Styling**: SCSS, Angular Material
 - **Icons**: FontAwesome, Material Icons
-- **Deployment**: GitHub Pages
+- **Deployment**: Vercel
 
 ## 📂 Project Structure
 - `src/app/core`: Shared components like Navigation and Footer.
@@ -27,11 +27,11 @@ A clean, modern, and responsive portfolio website built with **Angular 19** and 
 ## 🛠️ Installation & Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/NamanT98/namant98.github.io.git
+   git clone https://github.com/NamanT98/Portfolio.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd iportfolio-ng
+   cd Portfolio
    ```
 3. Install dependencies:
    ```bash
