@@ -3,7 +3,7 @@
 A clean, modern, and responsive portfolio website built with **Angular 19** and **Angular Material**.
 
 ## 🚀 Live Demo
-[portfolio-namant98.vercel.app](https://portfolio-namant98.vercel.app/)
+[namant-portfolio.vercel.app](https://namant-portfolio.vercel.app/)
 
 ## ✨ Features
 - **Modern UI/UX**: Clean design with smooth scroll animations.
