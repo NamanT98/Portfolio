@@ -1,0 +1,67 @@
+<section class="contact-section">
+  <div class="container section-header">
+    <h2>Contact Me</h2>
+    <p>Get in touch for collaborations, opportunities, or just to say hi!</p>
+  </div>
+
+  <div class="container">
+    <div class="horizontal-card">
+       <div class="card-item"><i class="fa-solid fa-envelope"></i> namantrisholiya17967@gmail.com</div>
+       <div class="card-item social-icons">
+          <a href="https://github.com/NamanT98" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/naman-trisoliya-a1079923b/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://www.kaggle.com/namantrisoliya" target="_blank" title="Kaggle"><i class="fa-brands fa-kaggle"></i></a>
+          <a href="https://medium.com/@namant_12542" target="_blank" title="Medium"><i class="fa-brands fa-medium"></i></a>
+          <a href="https://leetcode.com/namant/" target="_blank" title="Leetcode"><b>&lt;/&gt;</b></a>
+       </div>
+    </div>
+
+    <div class="form-wrapper">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Your Name</mat-label>
+            <input matInput formControlName="name" placeholder="John Doe">
+            @if (contactForm.get('name')?.hasError('required')) {
+              <mat-error>Name is required</mat-error>
+            }
+          </mat-form-field>
+          
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Your Email</mat-label>
+            <input matInput formControlName="email" placeholder="john@example.com">
+            @if (contactForm.get('email')?.hasError('email') && !contactForm.get('email')?.hasError('required')) {
+              <mat-error>Please enter a valid email address</mat-error>
+            }
+            @if (contactForm.get('email')?.hasError('required')) {
+              <mat-error>Email is required</mat-error>
+            }
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" class="form-field full-width">
+          <mat-label>Subject</mat-label>
+          <input matInput formControlName="subject" placeholder="Collaboration / Job Opportunity">
+          @if (contactForm.get('subject')?.hasError('required')) {
+            <mat-error>Subject is required</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field full-width">
+          <mat-label>Message</mat-label>
+          <textarea matInput formControlName="message" rows="5" placeholder="Write your message here..."></textarea>
+          @if (contactForm.get('message')?.hasError('required')) {
+            <mat-error>Message is required</mat-error>
+          }
+          @if (contactForm.get('message')?.hasError('minlength') && !contactForm.get('message')?.hasError('required')) {
+            <mat-error>Message must be at least 10 characters long</mat-error>
+          }
+        </mat-form-field>
+
+        <div class="submit-btn-wrapper">
+          <button mat-raised-button color="primary" type="submit" [disabled]="!contactForm.valid">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

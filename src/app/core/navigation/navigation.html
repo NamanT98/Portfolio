@@ -1,0 +1,32 @@
+<mat-toolbar class="fixed-header">
+  <a href="#about" class="logo" (click)="$event.preventDefault(); scrollToSection('about')">Naman Trisoliya</a>
+  
+  <span class="spacer"></span>
+  
+  <div class="nav-right hide-on-mobile">
+    <div class="nav-links">
+      <a href="#about" (click)="$event.preventDefault(); scrollToSection('about')">About</a>
+      <a href="#resume" (click)="$event.preventDefault(); scrollToSection('resume')">Resume</a>
+      <a href="#skills" (click)="$event.preventDefault(); scrollToSection('skills')">Skills</a>
+      <a href="#portfolio" (click)="$event.preventDefault(); scrollToSection('portfolio')">Projects</a>
+      <a href="#contact" (click)="$event.preventDefault(); scrollToSection('contact')">Contact</a>
+    </div>
+    <a href="assets/docs/NamanTrisoliya_SoftwareEngineer_Resume.pdf" download class="resume-header-btn">Resume <i class="fa-solid fa-download" style="margin-left: 5px;"></i></a>
+  </div>
+
+  <button mat-icon-button (click)="toggleTheme()" aria-label="Toggle dark mode" title="Toggle Theme" class="theme-btn">
+    <mat-icon>{{ isDarkMode ? 'light_mode' : 'dark_mode' }}</mat-icon>
+  </button>
+
+  <button mat-icon-button class="mobile-menu-btn show-on-mobile" [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu" class="mobile-nav-menu">
+    <a mat-menu-item href="#about" (click)="$event.preventDefault(); scrollToSection('about')">About</a>
+    <a mat-menu-item href="#resume" (click)="$event.preventDefault(); scrollToSection('resume')">Resume</a>
+    <a mat-menu-item href="#skills" (click)="$event.preventDefault(); scrollToSection('skills')">Skills</a>
+    <a mat-menu-item href="#portfolio" (click)="$event.preventDefault(); scrollToSection('portfolio')">Projects</a>
+    <a mat-menu-item href="#contact" (click)="$event.preventDefault(); scrollToSection('contact')">Contact</a>
+  </mat-menu>
+</mat-toolbar>

@@ -1,0 +1,209 @@
+.portfolio-section {
+  padding: 60px 0;
+  background-color: var(--mat-sys-surface);
+  min-height: 100vh;
+}
+
+
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+
+  h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--mat-sys-on-surface);
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 16px;
+    color: var(--mat-sys-on-surface-variant);
+  }
+}
+
+.filters-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.portfolio-filters {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+
+  li {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 50px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--mat-sys-on-surface);
+    transition: all 0.3s ease;
+
+    &:hover, &.filter-active {
+      background: var(--mat-sys-primary);
+      color: var(--mat-sys-on-primary);
+    }
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.portfolio-card {
+  background: var(--mat-sys-surface-container);
+  backdrop-filter: blur(16px);
+  border: var(--glass-border);
+  border-radius: var(--radius-large);
+  overflow: hidden;
+  box-shadow: var(--glass-shadow);
+  transition: transform 0.3s ease;
+  animation: fadeInScale 0.4s ease-out;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-5px);
+    .overlay {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInScale {
+    0% { transform: scale(0.95); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .card-img {
+    position: relative;
+    height: 220px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      .links {
+        display: flex;
+        gap: 15px;
+        
+        a {
+          background: var(--mat-sys-primary);
+          color: var(--mat-sys-on-primary);
+          width: 45px; height: 45px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-decoration: none;
+          transition: background 0.2s;
+
+          &:hover {
+            background: var(--mat-sys-tertiary);
+          }
+        }
+      }
+    }
+  }
+
+  .card-body {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    
+    h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--mat-sys-on-surface);
+      margin: 0 0 10px 0;
+      line-height: 1.4;
+    }
+    
+    .project-desc {
+      font-size: 14px;
+      color: var(--mat-sys-on-surface-variant);
+      margin-top: 10px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      text-align: left;
+      flex: 1;
+      
+      strong {
+        color: var(--mat-sys-on-surface);
+        font-weight: 600;
+      }
+    }
+
+    .card-footer-links {
+      display: flex;
+      gap: 16px;
+      margin-top: auto;
+      justify-content: space-between;
+
+      a.github-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--mat-sys-primary);
+        font-size: 12.5px;
+        font-weight: 600;
+        font-family: 'JetBrains Mono', monospace;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: var(--mat-sys-on-surface);
+        }
+
+        i {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-section {
+    padding: 40px 12px;
+  }
+  .section-header h2 {
+    font-size: 26px;
+  }
+  .grid-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .portfolio-filters-container {
+    gap: 8px;
+  }
+  .portfolio-filters li {
+    font-size: 13px;
+    padding: 5px 12px;
+  }
+}

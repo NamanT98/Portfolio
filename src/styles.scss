@@ -1,0 +1,116 @@
+@use '@angular/material' as mat;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+html.dark-theme {
+  @include mat.theme((
+    color: (
+      theme-type: dark
+    ),
+    typography: Inter,
+    density: 0,
+  ));
+
+  /* Ultra Clean Modern Dark Aesthetic */
+  --mat-sys-surface: #030303;
+  --mat-sys-surface-container: rgba(23, 23, 23, 0.4);
+  --mat-sys-on-surface: #ffffff;
+  --mat-sys-on-surface-variant: #a3a3a3;
+  --mat-sys-primary: #b45309; /* Bronze brown accent */
+  --mat-sys-primary-hover: #92400e;
+  --mat-sys-on-primary: #000000;
+  
+  --radius-large: 24px;
+  --radius-medium: 16px;
+  --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+html {
+  @include mat.theme((
+    color: (
+      theme-type: light
+    ),
+    typography: Inter,
+    density: 0,
+  ));
+
+  /* Ultra Clean Modern Light Aesthetic */
+  --mat-sys-surface: #f8fafc;
+  --mat-sys-surface-container: rgba(255, 255, 255, 0.6);
+  --mat-sys-on-surface: #0f172a;
+  --mat-sys-on-surface-variant: #475569;
+  --mat-sys-primary: #b45309; /* Bronze brown accent */
+  --mat-sys-primary-hover: #92400e;
+  --mat-sys-on-primary: #ffffff;
+  
+  --radius-large: 24px;
+  --radius-medium: 16px;
+  --glass-border: 1px solid rgba(0, 0, 0, 0.05);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  height: 100%;
+}
+
+body {
+  color-scheme: light;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
+  :global(&.dark-theme),
+  .dark-theme & {
+    color-scheme: dark;
+  }
+
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font-family: 'Open Sans', 'Inter', sans-serif;
+  font-weight: 400;
+  margin: 0;
+  height: 100%;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+  overflow-x: hidden;
+}
+
+/* Global layout container — matches navigation bar width */
+.container {
+  max-width: 1000px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+}
+
+/* Base utility text */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+/* Responsive Image Rule */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Mobile: let container use full width with safe margins */
+@media (max-width: 480px) {
+  .container {
+    width: calc(100% - 24px);
+  }
+}
+
+/* Beautiful scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--mat-sys-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(150,150,150,0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mat-sys-primary);
+}

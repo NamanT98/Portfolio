@@ -1,0 +1,22 @@
+<section class="skills-section">
+  <div class="container section-header">
+    <h2>Skills</h2>
+    <p>My technical toolkit — languages, frameworks, and tools I work with.</p>
+  </div>
+
+  <div class="container skills-grid">
+    @for (group of skillGroups; track group.category) {
+      <div class="skill-card">
+        <div class="card-header">
+          <i class="fa-solid {{ group.icon }}"></i>
+          <h4>{{ group.category }}</h4>
+        </div>
+        <div class="tags">
+          @for (skill of group.skills; track skill) {
+            <span class="tag">{{ skill }}</span>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</section>
