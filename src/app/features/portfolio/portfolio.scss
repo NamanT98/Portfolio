@@ -1,6 +1,6 @@
 .portfolio-section {
   padding: 60px 0 20px;
-  background-color: var(--mat-sys-surface);
+  background-color: transparent;
   min-height: auto;
 }
 
@@ -215,7 +215,8 @@
 }
 
 .view-all-btn {
-  background: transparent;
+  background: var(--mat-sys-surface-container);
+  backdrop-filter: blur(16px);
   border: 1px solid var(--mat-sys-primary);
   color: var(--mat-sys-primary);
   padding: 12px 30px;
@@ -233,8 +234,7 @@
   }
 
   &:hover {
-    background: var(--mat-sys-primary);
-    color: var(--mat-sys-on-primary);
+    filter: brightness(1.1);
     
     i {
       transform: translateX(5px);

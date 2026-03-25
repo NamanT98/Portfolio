@@ -1,7 +1,7 @@
 #hero {
   height: 100vh;
   position: relative;
-  background-color: var(--mat-sys-surface);
+  background-color: transparent;
   background-image: radial-gradient(circle at 50% 50%, rgba(180, 83, 9, 0.08) 0%, transparent 60%);
   display: flex;
   align-items: center;

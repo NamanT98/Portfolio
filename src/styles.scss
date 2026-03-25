@@ -48,6 +48,7 @@ html {
   --glass-border: 1px solid rgba(0, 0, 0, 0.05);
   --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
   height: 100%;
+  background-color: var(--mat-sys-surface);
 }
 
 body {
@@ -59,7 +60,7 @@ body {
     color-scheme: dark;
   }
 
-  background-color: var(--mat-sys-surface);
+  background-color: transparent;
   color: var(--mat-sys-on-surface);
   font-family: 'Open Sans', 'Inter', sans-serif;
   font-weight: 400;
@@ -102,15 +103,222 @@ img {
 
 /* Beautiful scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--mat-sys-surface);
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(150,150,150,0.3);
-  border-radius: 4px;
+  background: rgba(180, 83, 9, 0.25);
+  border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--mat-sys-primary);
+  background: rgba(180, 83, 9, 0.5);
+}
+
+/* Background Animation Styles */
+.bg-anim-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bg-anim-dot-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, #b45309 1.5px, transparent 1.5px) !important;
+  background-size: 50px 50px;
+  opacity: 0.25;
+}
+
+.bg-anim-blobs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(120px);
+}
+
+.bg-anim-blob {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, #b45309 0%, transparent 70%) !important;
+  opacity: 0.22;
+  transition: opacity 0.5s ease;
+}
+
+.bg-anim-blob-1 {
+  width: 650px;
+  height: 650px;
+  top: -100px;
+  left: -100px;
+  animation: bg-float 22s infinite alternate ease-in-out;
+}
+
+.bg-anim-blob-2 {
+  width: 750px;
+  height: 750px;
+  bottom: -150px;
+  right: -100px;
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  animation: bg-float 28s infinite alternate-reverse ease-in-out;
+  opacity: 0.18;
+}
+
+.bg-anim-blob-3 {
+  width: 550px;
+  height: 550px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: bg-float 18s infinite alternate ease-in-out;
+  opacity: 0.12;
+}
+
+@keyframes bg-float {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(120px, 60px) scale(1.1) rotate(8deg);
+  }
+  66% {
+    transform: translate(-60px, 120px) scale(0.9) rotate(-8deg);
+  }
+  100% {
+    transform: translate(60px, -60px) scale(1) rotate(0deg);
+  }
+}
+
+html.dark-theme {
+  .bg-anim-dot-grid {
+    opacity: 0.12;
+    background-image: radial-gradient(circle, #b45309 1.5px, transparent 1.5px) !important;
+  }
+  .bg-anim-blob {
+    opacity: 0.15;
+    background: radial-gradient(circle, #b45309 0%, transparent 70%) !important;
+  }
+}
+
+/* Tech Elements Styles */
+.bg-anim-tech-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.tech-item {
+  position: absolute;
+  color: #b45309;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 24px;
+  opacity: 0.22; /* Increased for light mode */
+  user-select: none;
+}
+
+/* Shapes */
+.item-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #b45309;
+  border-radius: 50%;
+}
+
+.item-square {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #b45309;
+}
+
+.item-triangle {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 18px solid #b45309;
+  background: transparent !important;
+  &:after {
+    content: none;
+  }
+}
+
+/* Evenly Distributed Grid Positions */
+.tip-1  { top: 5%;  left: 5%;   animation-duration: 12s; }
+.tip-2  { top: 5%;  left: 21%;  animation-duration: 15s; animation-direction: reverse; }
+.tip-3  { top: 5%;  left: 38%;  animation-duration: 18s; }
+.tip-4  { top: 5%;  left: 54%;  animation-duration: 14s; animation-direction: reverse; }
+.tip-5  { top: 5%;  left: 70%;  animation-duration: 20s; }
+.tip-6  { top: 5%;  left: 86%;  animation-duration: 16s; animation-direction: reverse; }
+
+.tip-7  { top: 25%; left: 10%;  animation-duration: 13s; }
+.tip-8  { top: 25%; left: 26%;  animation-duration: 17s; animation-direction: reverse; }
+.tip-9  { top: 25%; left: 43%;  animation-duration: 19s; }
+.tip-10 { top: 25%; left: 59%;  animation-duration: 21s; animation-direction: reverse; }
+.tip-11 { top: 25%; left: 75%;  animation-duration: 25s; }
+.tip-12 { top: 25%; left: 91%;  animation-duration: 22s; animation-direction: reverse; }
+
+.tip-13 { top: 45%; left: 5%;   animation-duration: 30s; }
+.tip-14 { top: 45%; left: 21%;  animation-duration: 28s; animation-direction: reverse; }
+.tip-15 { top: 45%; left: 38%;  animation-duration: 24s; }
+.tip-16 { top: 45%; left: 54%;  animation-duration: 26s; animation-direction: reverse; }
+.tip-17 { top: 45%; left: 70%;  animation-duration: 23s; }
+.tip-18 { top: 45%; left: 86%;  animation-duration: 27s; animation-direction: reverse; }
+
+.tip-19 { top: 65%; left: 10%;  animation-duration: 29s; }
+.tip-20 { top: 65%; left: 26%;  animation-duration: 32s; animation-direction: reverse; }
+.tip-21 { top: 65%; left: 43%;  animation-duration: 35s; }
+.tip-22 { top: 65%; left: 59%;  animation-duration: 31s; animation-direction: reverse; }
+.tip-23 { top: 65%; left: 75%;  animation-duration: 34s; }
+.tip-24 { top: 65%; left: 91%;  animation-duration: 33s; animation-direction: reverse; }
+
+.tip-25 { top: 85%; left: 5%;   animation-duration: 36s; }
+.tip-26 { top: 85%; left: 21%;  animation-duration: 38s; animation-direction: reverse; }
+.tip-27 { top: 85%; left: 38%;  animation-duration: 37s; }
+.tip-28 { top: 85%; left: 54%;  animation-duration: 40s; animation-direction: reverse; }
+.tip-29 { top: 85%; left: 70%;  animation-duration: 39s; }
+.tip-30 { top: 85%; left: 86%;  animation-duration: 42s; }
+
+.tech-item {
+  animation-name: float-tech;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes float-tech {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, 40px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-15px, 80px) rotate(240deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+html.dark-theme {
+  .tech-item {
+    color: #b45309;
+    opacity: 0.22; /* Increased for better visibility in dark mode */
+  }
+  .item-circle, .item-square { border-color: #b45309; }
+  .item-triangle { border-bottom-color: #b45309; }
 }

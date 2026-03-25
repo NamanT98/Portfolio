@@ -1,6 +1,6 @@
 .about-section {
   padding: 130px 0 40px;
-  background-color: var(--mat-sys-surface);
+  background-color: transparent;
   min-height: auto;
   display: flex;
   flex-direction: column;
@@ -109,6 +109,12 @@
     font-size: 14px;
     color: var(--mat-sys-on-surface);
   }
+
+  .download-section{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -188,7 +194,10 @@
     font-size: 26px;
     transition: color 0.3s ease;
     &:hover { color: var(--mat-sys-on-surface); }
-    b { font-size: 22px; line-height: 26px; display: inline-block; vertical-align: middle; }
+    b { font-size: 20px;
+        line-height: 24px;
+        display: inline-block;
+        vertical-align: middle;}
   }
 }
 
