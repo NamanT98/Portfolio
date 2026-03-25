@@ -30,6 +30,7 @@ yarn-error.log
 
 # Miscellaneous
 /.angular/cache
+.agents/
 .sass-cache/
 /connect.lock
 /coverage
@@ -37,6 +38,7 @@ yarn-error.log
 testem.log
 /typings
 __screenshots__/
+skills-lock.json
 
 # System files
 .DS_Store

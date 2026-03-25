@@ -1,5 +1,5 @@
 .about-section {
-  padding: 120px 0 20px;
+  padding: 130px 0 40px;
   background-color: var(--mat-sys-surface);
   min-height: auto;
   display: flex;
@@ -32,9 +32,10 @@
   background: var(--mat-sys-surface-container);
   backdrop-filter: blur(16px);
   border: var(--glass-border);
+  border-top: 3px solid var(--mat-sys-primary);
   border-radius: var(--radius-large);
-  padding: 40px;
-  box-shadow: var(--glass-shadow);
+  padding: 48px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.18), var(--glass-shadow);
   box-sizing: border-box;
   width: 100%;
 }
@@ -112,7 +113,7 @@
 
 @media (max-width: 1024px) {
   .about-section {
-    padding: 100px 24px 20px;
+    padding: 90px 24px 32px;
   }
   
   .content {
@@ -149,7 +150,7 @@
 
 @media (max-width: 576px) {
   .about-section {
-    padding: 100px 16px 20px;
+    padding: 90px 16px 28px;
   }
   .section-header h2 {
     font-size: 26px;

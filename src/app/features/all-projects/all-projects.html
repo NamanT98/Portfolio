@@ -1,0 +1,53 @@
+<section class="all-projects-section">
+  <div class="container">
+    <div class="page-header">
+      <button class="back-btn" (click)="goBack()">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </button>
+      <div class="header-text">
+        <h2>All Projects</h2>
+        <p>A complete collection of my work across AI, Data Visualization, and Development.</p>
+      </div>
+    </div>
+
+    <div class="filters-wrapper">
+      <ul class="portfolio-filters">
+        @for (filter of filters; track filter) {
+          <li [class.filter-active]="currentFilter === filter" (click)="setFilter(filter)">
+            {{ filter }}
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="grid-container">
+      @for (item of filteredItems; track item.title + currentFilter) {
+        <div class="portfolio-card">
+          <div class="card-img">
+            <img [src]="item.image" alt="Project Image">
+            <div class="overlay">
+              <div class="links">
+                @for (link of item.links; track link.url) {
+                  <a [href]="link.url" target="_blank">
+                    <i class="fa-brands fa-github" style="font-size: 24px;"></i>
+                  </a>
+                }
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h4>{{ item.title }}</h4>
+            <p class="project-desc" [innerHTML]="item.description"></p>
+            <div class="card-footer-links">
+              @for (link of item.links; track link.url) {
+                <a [href]="link.url" target="_blank" class="github-link">
+                  <i class="fa-brands fa-github"></i> Source Code
+                </a>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
